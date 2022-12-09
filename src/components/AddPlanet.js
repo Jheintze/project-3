@@ -19,11 +19,11 @@ function AddPlanet(props) {
     const requestBody = { name, type, weather, distanceSun, day, year , price, img };
 
     // Get token from localStorage
-    const storedToken = localStorage.getItem('authToken');
+    // const storedToken = localStorage.getItem('authToken');
 
     // Send token through request "Authorization" Headers
     axios
-    .post(`${API_URL}/api/planets`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
+    .post(`${API_URL}/api/planets`, requestBody/* , { headers: { Authorization: `Bearer ${storedToken}` } } */)
     .then((response) => {
       setName("");
       setType("");
