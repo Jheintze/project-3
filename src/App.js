@@ -8,14 +8,17 @@ import Destinations from "./pages/destinations/destinations"
 // import IsPrivate from "./components/IsPrivate";
 // import IsAnon from "./components/IsAnon";
 
+
 function App() {
   return <div className="App">
+  
   <Navbar/>
+  
     
   <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/planets" element={<AddPlanet />} />
-  <Route path="/destinations/:id" element={<Destinations/>} />
+  <Route path="/destinations/:planetId" element={<Destinations/>} />
  </Routes>
     
      

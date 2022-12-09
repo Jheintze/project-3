@@ -9,13 +9,13 @@ const API_URL = "http://localhost:5005";
  
 
 
-const Destinations = () => {
+const Destinations = (props) => {
     const [planet, setPlanet] = useState(null);
     const { planetId } = useParams();
     
     const getPlanet = () => {
         
-        axios.get(`${API_URL}/api/planet/${planetId}`)
+        axios.get(`${API_URL}/api/planets/${planetId}`)
         .then((response) => {
           const oneplanet= response.data;
           setPlanet(oneplanet);
@@ -26,15 +26,16 @@ const Destinations = () => {
       
       useEffect(()=> {
         getPlanet();
-      }, [] );
+      }, [planetId] );
 
    return (
     
     <div>destinations
      {planet && (
         <>
+           
           <h1>{planet.name}</h1>
-          <p>{planet.type}</p>
+         <img src={planet.img} alt="alt"></img>
         </>
       )}
     
