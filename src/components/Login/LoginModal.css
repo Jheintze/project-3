@@ -1,0 +1,9 @@
+.onlyButton{
+    background-color: rgba(0,0,0,0)!important;
+    border:0px !important;
+    margin-right:-100px !important;
+    font-size: large !important;
+}
+.Header{
+    text-align:center !important;
+}

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
-import { AuthContext } from "./../../context/auth.context";
+import { AuthContext } from "../../context/auth.context";
 
 
 const API_URL = "http://localhost:5005";
@@ -51,11 +51,11 @@ function LoginModal () {
     <>
        
        { isLoggedIn ?
-    <Button variant="primary" onClick={logOutUser}>
+    <Button className="onlyButton" onClick={logOutUser}>
       Logout
     </Button> 
     :
-     <Button variant="secondary" onClick={handleShow}>
+     <Button className="onlyButton"  onClick={handleShow}>
       Login
     </Button>
     
