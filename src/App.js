@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import AddPlanet from "./components/AddPlanet.js";
 import Navbar from "./components/Navbar/Navbar";
 import Destinations from "./pages/destinations/destinations"
+import Profile from "./pages/Profile/Profile"
 // import IsPrivate from "./components/IsPrivate";
 // import IsAnon from "./components/IsAnon";
 
@@ -19,6 +20,7 @@ function App() {
   <Route path="/" element={<Home />} />
   <Route path="/planets" element={<AddPlanet />} />
   <Route path="/destinations/:planetId" element={<Destinations/>} />
+  <Route path="/profile" element={<Profile />} />
  </Routes>
     
      
