@@ -13,7 +13,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 const API_URL = "http://localhost:5005";
 
-const MyNav = () => {
+const MyNav = (props) => {
   const [planets, setPlanets] = useState([]);
   // const [showLogin, setShowLogin] = useState(false)
 
@@ -35,24 +35,24 @@ const MyNav = () => {
   }, []);
 
   return (
-    <Navbar className ="upperNav" collapseOnSelect expand="lg"  variant="dark">
-      <Container>
-        <Navbar.Brand href="/">LOGO</Navbar.Brand>
+    <Navbar className="upperNav" collapseOnSelect expand="lg" variant="dark">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto ">
+        <Navbar.Collapse id="responsive-navbar-nav" className="navJustify">
+        <Navbar.Brand href="/" className="">
+              LOGO
+          </Navbar.Brand>
+          <Nav className="">
             <NavDropdown title="Destinations" id="collasible-nav-dropdown">
-            {planets.map( (planet) => (
-			<Link to={`/destinations/` + planet._id}>{planet.name}</Link>
-					))}
+              {planets.map((planet) => (
+                <Link to={`/destinations/` + planet._id}>{planet.name}</Link>
+              ))}
             </NavDropdown>
           </Nav>
           <Nav>
-          <SignUpModal />
-          <LoginModal />
+            <SignUpModal show={props.show}/>
+            <LoginModal />
           </Nav>
         </Navbar.Collapse>
-      </Container>
     </Navbar>
   );
 };

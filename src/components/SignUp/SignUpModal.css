@@ -4,3 +4,10 @@
     font-size: large !important;
   
 }
+.profileLink{
+    text-decoration:none;
+    color:white;
+}
+.profileLink:hover {
+    text-decoration:none;
+  }
