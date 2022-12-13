@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import "./SignUpModal.css"
 import { useState , useContext} from 'react';
 import Button from 'react-bootstrap/Button';
@@ -54,21 +54,32 @@ function SignUpModal(props) {
     })
   };
 
+  const updateCounter = useRef(0)
+
+  // TODO: before deployment change the counter to 1
+  useEffect(() => {
+    if (updateCounter.current < 2) {
+      updateCounter.current = updateCounter.current + 1
+      return
+    }
+      setShow(true)
+  }, [props.show])
+
   return (
     <>
 
 { isLoggedIn ?
     <Button className="onlyButtonTwo" variant="dark" >
+    <a className ="profileLink" href="/profile">
       Profile
+      </a>
     </Button> 
     :
      <Button className="onlyButtonTwo"variant="dark" onClick={handleShow}>
       Register
     </Button>
     
-    }
-      
-      
+    }     
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Register</Modal.Title>

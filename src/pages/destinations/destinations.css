@@ -18,9 +18,13 @@ body {
     align-items: center;
     background-color: #000;
     text-align: center ;
+    
 }
 .set img {
    width: 100%;
+}
+.secondSet {
+  justify-content: center;
 }
 h1 {
     text-align:center !important;

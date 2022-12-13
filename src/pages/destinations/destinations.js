@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./destinations.css";
+import BookingModal from "../../components/Booking/BookingModal";
 
 // import Navbar from "./components/Navbar/Navbar";
 const API_URL = "http://localhost:5005";
@@ -26,6 +27,7 @@ const Destinations = (props) => {
     getPlanet();
   }, [planetId]);
 
+
   return (
     <>
       {planet && (
@@ -33,12 +35,15 @@ const Destinations = (props) => {
           <div class="set">
             <img src={planet.img} alt="alt"></img>
           </div>
-          <ul class="secondSet">
+          <div class="secondSet">
+          <ul>
             <li className="plName">{planet.name}</li>
             <li> {planet.type}</li>
             <li> {planet.weather}</li>
             <li> {planet.distanceSun}</li>
-          </ul>
+            </ul>
+            <BookingModal handleShow={props.handleShow}/> 
+          </div>
         </div>
       )}
     </>
