@@ -1,19 +1,39 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import axios from 'axios';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
-function FlightCard() {
+const API_URL = "http://localhost:5005";
+
+function FlightCard({flight, getUserFlights}) {
+
+  const deleteFlight = (fligthId) => {
+    axios
+      .delete(`${API_URL}/api/delete/${fligthId}`)
+      .then((response) => { 
+        getUserFlights()
+       console.log(response)
+      })
+      .catch((error) => console.log(error));
+  };
+
+var dat = new Date(flight.departure).toLocaleDateString();
+var wat = new Date(flight.returning).toLocaleDateString();
+
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    
+    <Card className ="hello" style={{ width: '18rem', marginBottom: "50px" }}>
+      <Card.Img variant="top" src={flight.planet.img} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>{flight.planet.name}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {dat} - {wat}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button onClick={()=>deleteFlight(flight._id)} variant="primary">Cancel Flight</Button>
       </Card.Body>
     </Card>
+    
   );
 }
 
