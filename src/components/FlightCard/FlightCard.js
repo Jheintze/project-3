@@ -4,7 +4,7 @@ import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://rich-plum-calf-slip.cyclic.app";
 
 function FlightCard({flight, getUserFlights}) {
 
@@ -23,14 +23,17 @@ var wat = new Date(flight.returning).toLocaleDateString();
 
   return (
     
-    <Card className ="hello" style={{ width: '18rem', marginBottom: "50px" }}>
-      <Card.Img variant="top" src={flight.planet.img} />
+    <Card  style={{ width: '18rem', marginBottom: "50px", color: "white", backgroundColor: "black", borderColor: "navy" }}>
+      <Card.Img  style={{marginTop:"5px"}}variant="top" src={flight.planet.img} />
       <Card.Body>
-        <Card.Title>{flight.planet.name}</Card.Title>
+        <Card.Title style={{fontSize: "large"}}> Flight to {flight.planet.name} for {flight.price} €</Card.Title>
         <Card.Text>
           {dat} - {wat}
-        </Card.Text>
-        <Button onClick={()=>deleteFlight(flight._id)} variant="primary">Cancel Flight</Button>
+          </Card.Text>
+          <Card.Text>
+            {flight.adults} Adults {flight.children} children {flight.TravelClass}
+          </Card.Text>
+        <Button style={{backgroundColor: "black" }}onClick={()=>deleteFlight(flight._id)} variant="primary">Cancel Flight</Button>
       </Card.Body>
     </Card>
     

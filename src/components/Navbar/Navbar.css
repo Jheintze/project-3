@@ -1,8 +1,22 @@
 .upperNav{
     z-index: 1 ;
 }
-
 .navJustify {
 display:flex;
 justify-content: space-between;
+}
+
+.dropdown-menu.show{
+    background-color: black !important;
+}
+a{
+    color:white !important;
+}
+
+.logoPic{
+    width:250px !important;
+    margin-left:10px;
+}
+.dropDownTitle{
+    margin-right:50px !important;
 }

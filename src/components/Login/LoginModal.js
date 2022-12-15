@@ -8,7 +8,7 @@ import axios from 'axios';
 import { AuthContext } from "../../context/auth.context";
 
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://rich-plum-calf-slip.cyclic.app";
 
 function LoginModal () {
 

@@ -11,7 +11,7 @@ import SignUpModal from "../SignUp/SignUpModal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://rich-plum-calf-slip.cyclic.app";
 
 const BookingModal = (props) => {
   const [planet, setPlanet] = useState();
@@ -54,6 +54,7 @@ const BookingModal = (props) => {
       else if ( TravelClass === "First class"){
         price = price * 3
       }
+      
       setPrice(price);
     };
 
@@ -131,9 +132,10 @@ const BookingModal = (props) => {
         <>
           {isLoggedIn ? (
             <Button
-              className="onlyButtonTwo"
+              className="onlyButtonThree"
               variant="dark"
               onClick={handleShow}
+              size="lg"
             >
               Book now !
             </Button>
@@ -142,6 +144,7 @@ const BookingModal = (props) => {
               className="onlyButtonThree"
               variant="dark"
               onClick={props.handleShow}
+              size="lg"
             >
               Register or Log in
             </Button>
