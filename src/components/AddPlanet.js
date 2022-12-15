@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "https://rich-plum-calf-slip.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function AddPlanet(props) {
+
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [weather, setWeather] = useState("");

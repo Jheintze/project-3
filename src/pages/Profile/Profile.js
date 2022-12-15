@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const Profile = () => {
   
-  const API_URL = "https://rich-plum-calf-slip.cyclic.app";
+  const API_URL = "http://localhost:5005";
 
   const { storeToken, authenticateUser, isLoggedIn, user } =
 

@@ -11,7 +11,7 @@ import SignUpModal from "../SignUp/SignUpModal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const API_URL = "https://rich-plum-calf-slip.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 const BookingModal = (props) => {
   const [planet, setPlanet] = useState();
@@ -146,7 +146,7 @@ const BookingModal = (props) => {
               onClick={props.handleShow}
               size="lg"
             >
-              Register or Log in
+              Register or Log in to book a flight
             </Button>
           )}
 
@@ -170,6 +170,7 @@ const BookingModal = (props) => {
                         value={departure}
                         onChange={handleDeparture}
                         required
+                        min='2022-12-16'
                       />
                     </div>
                   </div>

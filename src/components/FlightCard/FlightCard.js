@@ -4,7 +4,7 @@ import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const API_URL = "https://rich-plum-calf-slip.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function FlightCard({flight, getUserFlights}) {
 

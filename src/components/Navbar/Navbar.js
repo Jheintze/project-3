@@ -12,7 +12,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../../assets/logo-no-background.png"
 
-const API_URL = "https://rich-plum-calf-slip.cyclic.app";
+const API_URL = process.env.REACT_APP_API_URL
 
 const MyNav = (props) => {
   const [planets, setPlanets] = useState([]);
@@ -43,9 +43,9 @@ const MyNav = (props) => {
            <img className="logoPic" src={logo}   alt="logo>"></img>
           </Navbar.Brand>
           <Nav className="">
-            <NavDropdown className="dropDowntitle" title="Destinations" id="collasible-nav-dropdown">
+            <NavDropdown className="dropDownTitle" title="Destinations" id="collasible-nav-dropdown">
               {planets.map((planet) => (
-                <NavDropdown.Item style={{backgroundColor: "black"}}>
+                <NavDropdown.Item style={{backgroundColor: "transparent"}}>
                 <Link style ={{textDecoration: "none", Color: "black", backgroundColor: "black"}} to={`/destinations/` + planet._id}>{planet.name}</Link>               
                 </NavDropdown.Item>
               ))}

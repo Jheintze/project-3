@@ -7,10 +7,12 @@ justify-content: space-between;
 }
 
 .dropdown-menu.show{
-    background-color: black !important;
+    background-color: rgba(255, 0, 0, 0) !important;
 }
+
 a{
     color:white !important;
+    background-color: rgba(255, 0, 0, 0) !important;
 }
 
 .logoPic{
@@ -19,4 +21,6 @@ a{
 }
 .dropDownTitle{
     margin-right:50px !important;
+    font-weight:300;
+    font-size:large !important;
 }

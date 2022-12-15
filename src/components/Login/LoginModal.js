@@ -8,7 +8,7 @@ import axios from 'axios';
 import { AuthContext } from "../../context/auth.context";
 
 
-const API_URL = "https://rich-plum-calf-slip.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 function LoginModal () {
 
@@ -61,7 +61,7 @@ function LoginModal () {
     
     }
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal className="modal" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Log in</Modal.Title>
         </Modal.Header>
@@ -78,7 +78,7 @@ function LoginModal () {
              <Form.Label>Password</Form.Label>
              <Form.Control onChange={handlePassword} type="password" placeholder="Password" />
            </Form.Group>          
-          <Button  type="submit" variant="secondary" >
+          <Button type="submit" variant="secondary" >
           Submit
           </Button>
           </Form>

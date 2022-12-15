@@ -9,7 +9,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import BookingModal from "../../components/Booking/BookingModal";
 
 // import Navbar from "./components/Navbar/Navbar";
-const API_URL = "https://rich-plum-calf-slip.cyclic.app";
+
+const API_URL = "http://localhost:5005";
 
 const Destinations = (props) => {
   const [planet, setPlanet] = useState(null);
@@ -38,7 +39,7 @@ const Destinations = (props) => {
           </div>
           <div class="secondSet">
             <div className="wrapper">
-              <h1 class="title"> {planet.name} </h1>
+              <h1 className="title"> {planet.name} </h1>
               <p class="planetText">
               
                 here some descriptionhere some descriptionhere some
