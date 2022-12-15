@@ -37,9 +37,10 @@ img {
   /* border: 5px solid red; */
 }
 .title {
- text-align:top;
- margin-top:50px;
- margin-bottom:100px;
+ text-align:center;
+ 
+ margin-top:50px !important;
+ margin-bottom:80px !important;
 }
 .planetText{
 text-align:center;
@@ -51,15 +52,13 @@ margin-top:-50px;
   list-style-type: none;
   display: inline-block;
   text-align: start;
-  margin-top:50px;
+  margin-top:80px;
   font-size:larger;
 }
 .wrapper{
   margin-top:-100px;
   width:70%;
   padding: 40px;
-  
-  border-radius: 30px;
   }
 
 

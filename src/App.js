@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Destinations from "./pages/destinations/destinations"
 import Profile from "./pages/Profile/Profile"
 import { useParams } from 'react-router-dom';
+import Highlights from './pages/highlights/highlights';
+
 // import IsPrivate from "./components/IsPrivate";
 // import IsAnon from "./components/IsAnon";
 
@@ -16,7 +18,7 @@ function App() {
   const handleShow = () => setShow(!show);
   const [planet, setPlanet] = useState(null);
   const { planetId } = useParams();
-
+  
 
   return <div className="App">
   
@@ -24,6 +26,7 @@ function App() {
   
     
   <Routes>
+  <Route path="/highlights" element={<Highlights />} />
   <Route path="/" element={<Home />} />
   <Route path="/planets" element={<AddPlanet />} />
   <Route path="/destinations/:planetId" element={<Destinations handleShow={handleShow}/> }/>

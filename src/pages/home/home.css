@@ -11,3 +11,22 @@ video {
   .secTwo{
     background-image: "../../assets/saturnsurfer.jfif"
   }
+
+  h3{
+    color:white;
+    
+  }
+
+  .homeTitle{
+    text-align:left !important;
+    margin-top:200px !important;
+    margin-bottom:50px !important;
+    font-weight:50px !important;
+    
+  }
+  .text{
+    width:35% !important;
+    margin-left:30px;
+    font-weight:1000 !important;
+    opacity: 1;
+  }
