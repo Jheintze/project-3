@@ -1,9 +1,10 @@
 body{
     background-color:black !important;
-    
+   
 }
 h1{
     color:white;
+    text-align:center;
 }
 .cards{
     padding-top:50px;

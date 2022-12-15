@@ -9,5 +9,6 @@
     color:white;
 }
 .profileLink:hover {
-    text-decoration:none;
+    background-color:black !important;
+    color:white !important;
   }

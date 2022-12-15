@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { AuthContext } from "../../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://rich-plum-calf-slip.cyclic.app";
 
 
 
@@ -70,7 +70,7 @@ function SignUpModal(props) {
 
 { isLoggedIn ?
     <Button className="onlyButtonTwo" variant="dark" >
-    <a className ="profileLink" href="/profile">
+    <a  className ="profileLink" href="/profile">
       Profile
       </a>
     </Button> 

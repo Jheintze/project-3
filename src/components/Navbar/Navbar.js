@@ -10,8 +10,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import logo from "../../assets/logo-no-background.png"
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://rich-plum-calf-slip.cyclic.app";
 
 const MyNav = (props) => {
   const [planets, setPlanets] = useState([]);
@@ -38,13 +39,15 @@ const MyNav = (props) => {
     <Navbar className="upperNav" collapseOnSelect expand="lg" variant="dark">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="navJustify">
-        <Navbar.Brand href="/" className="">
-              LOGO
+        <Navbar.Brand href="/" className="logo">
+           <img className="logoPic" src={logo}   alt="logo>"></img>
           </Navbar.Brand>
           <Nav className="">
-            <NavDropdown title="Destinations" id="collasible-nav-dropdown">
+            <NavDropdown className="dropDowntitle" title="Destinations" id="collasible-nav-dropdown">
               {planets.map((planet) => (
-                <Link to={`/destinations/` + planet._id}>{planet.name}</Link>
+                <NavDropdown.Item style={{backgroundColor: "black"}}>
+                <Link style ={{textDecoration: "none", Color: "black", backgroundColor: "black"}} to={`/destinations/` + planet._id}>{planet.name}</Link>               
+                </NavDropdown.Item>
               ))}
             </NavDropdown>
           </Nav>
@@ -58,7 +61,7 @@ const MyNav = (props) => {
 };
 
 export default MyNav;
-
+/* <NavDropdown.Item as={Link} to={`/destinations/` + planet._id}>Hello</NavDropdown.Item> */
 // <li><Link to={"/planets/"}></Link></li>
 //        <li><a class="dropdown-item" href="#">Venus</a></li>
 //       <li><a class="dropdown-item" href="#">Ssaturn</a></li>
