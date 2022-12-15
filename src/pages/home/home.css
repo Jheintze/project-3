@@ -7,3 +7,7 @@ video {
     left:0;
     z-index: -1;
   }
+
+  .secTwo{
+    background-image: "../../assets/saturnsurfer.jfif"
+  }

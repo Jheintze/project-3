@@ -8,8 +8,8 @@ import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import SignUpModal from "../SignUp/SignUpModal";
-
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -27,39 +27,77 @@ const BookingModal = (props) => {
   const [children, setChildren] = useState("");
   const [TravelClass, setTravelClass] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const [price, setPrice] = useState(0)
-  // const [planetPrice, setPlanetPrice] = useState(0)
- 
-  
+  const [price, setPrice] = useState(0);
 
+  useEffect(() => {
+    if (!planet) {
+      return;
+    }
+    const calculate = () => {
+      let price = planet.price * adults;
+
+      if (departure && returning) {
+
+        let date1 = departure;
+        let date2 = returning;
+        new Date(date1).getTime();
+        new Date(date2).getTime();
+        let timeDif = new Date(date2).getTime() - new Date(date1).getTime();
+        let days = timeDif / (1000 * 3600 * 24);
+
+        price = price * days;
+      }
+
+      if ( TravelClass === "Business class"){
+        price = price * 2
+      }
+      else if ( TravelClass === "First class"){
+        price = price * 3
+      }
+      setPrice(price);
+    };
+
+    calculate();
+  }, [departure, planet, returning, adults, TravelClass]);
+
+  // handle Input fields
+  
   const handleDeparture = (e) => {
     setDeparture(e.target.value);
-    calculate()
-  }
-  const handleReturning = (e) => setReturning(e.target.value);
-
+  };
+  const handleReturning = (e) => {
+    setReturning(e.target.value);
+  };
   const handleAdults = (e) => {
     setAdults(e.target.value);
-    calculate()
-  }
-  const handleChildren = (e) => setChildren(e.target.value);
-  const handleTravelClass = (e) => setTravelClass(e.target.value);
+  };
+  const handleChildren = (e) => {
+    setChildren(e.target.value);
+  };
+  const handleTravelClass = (e) => {
+    setTravelClass(e.target.value);
+    console.log(e.target.value);
+  };
   
 
-  const calculate = () =>{
-    console.log(planet.price)
-    let price =  planet.price * adults
-    setPrice(price)
-  }
-  
-  console.log(price)
+  let dateNoTime = new Date(departure).toLocaleDateString();
 
-  const { storeToken, authenticateUser , isLoggedIn} = useContext(AuthContext);
+  const { storeToken, authenticateUser, isLoggedIn, user } =
+    useContext(AuthContext);
 
   const handleBooking = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { departure, returning, adults, children, TravelClass };
+    const requestBody = {
+      departure,
+      returning,
+      adults,
+      children,
+      TravelClass,
+      price,
+      user: user._id,
+      planet: planet._id,
+    };
 
     axios
       .post(`${API_URL}/api/flights`, requestBody)
@@ -91,17 +129,23 @@ const BookingModal = (props) => {
     <>
       {planet && (
         <>
-        { isLoggedIn ?
-    <Button className="onlyButtonTwo" variant="dark" onClick={handleShow} >
-     Book now !  
-    </Button> 
-    :
-     <Button className="onlyButtonThree" variant="dark" onClick={props.handleShow}>
-      Register or Log in
-    </Button>
-    
-    }     
-
+          {isLoggedIn ? (
+            <Button
+              className="onlyButtonTwo"
+              variant="dark"
+              onClick={handleShow}
+            >
+              Book now !
+            </Button>
+          ) : (
+            <Button
+              className="onlyButtonThree"
+              variant="dark"
+              onClick={props.handleShow}
+            >
+              Register or Log in
+            </Button>
+          )}
 
           {/* <Button className="onlyButtonTwo" variant="dark" onClick={handleShow}>
             Book
@@ -120,7 +164,6 @@ const BookingModal = (props) => {
                       <input
                         class="form-control"
                         type="date"
-                        min="2022-12-13"
                         value={departure}
                         onChange={handleDeparture}
                         required
@@ -188,10 +231,9 @@ const BookingModal = (props) => {
                   </div>
                 </div>
                 <div class="form-btn">
-                  
-                   <button type="submit" class="submit-btn">
+                  <button type="submit" class="submit-btn">
                     Book flight for {price} €
-                  </button> 
+                  </button>
                 </div>
               </form>
             </Modal.Body>
@@ -206,3 +248,13 @@ const BookingModal = (props) => {
 };
 
 export default BookingModal;
+
+{
+  /* <input
+                        class="form-control"
+                        type="date"
+                        value={returning}
+                        onChange={handleReturning}
+                        required
+                      /> */
+}
