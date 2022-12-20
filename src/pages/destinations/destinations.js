@@ -10,7 +10,7 @@ import BookingModal from "../../components/Booking/BookingModal";
 
 // import Navbar from "./components/Navbar/Navbar";
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.FRONTEND_URL
 
 const Destinations = (props) => {
   const [planet, setPlanet] = useState(null);
@@ -41,17 +41,15 @@ const Destinations = (props) => {
             <div className="wrapper">
               <h1 className="title"> {planet.name} </h1>
               <p class="planetText">
-              
-                here some descriptionhere some descriptionhere some
-                descriptionhere some descriptionhere some descriptionhere some
-                descriptionhere some descriptionhere some descriptionhere some
-                description
+              {planet.description}
               </p>
               <ul class="planetFacts">
-                <li>{planet.name}</li>
-                <li> {planet.type}</li>
-                <li> {planet.weather}</li>
-                <li> {planet.distanceSun}</li>
+                <li class="listFacts"> Type: {planet.type} </li>
+                <li class="listFacts">  Weather: {planet.weather}</li>
+                <li class="listFacts"> Baseprice: {planet.price} €</li>
+                <li class="listFacts"> Day : {planet.day}</li>
+                <li class="listFacts"> Year : {planet.year}</li>
+                
               </ul>
             </div>
             <BookingModal handleShow={props.handleShow} />
@@ -64,37 +62,3 @@ const Destinations = (props) => {
 
 export default Destinations;
 
-/* {planet && (
-        <>
-           
-          <h1>{planet.name}</h1>
-         <img src={planet.img} alt="alt"></img>
-        </>
-      )} */
-{
-  /* <h1> {planet.name}</h1>
-          <ul>
-            <li className="plName">{planet.name}</li>
-            <li> {planet.type}</li>
-            <li> {planet.weather}</li>
-            <li> {planet.distanceSun}</li>
-            </ul>
-            <BookingModal handleShow={props.handleShow}/>  */
-}
-{
-  /* <div class="card" style={{ width: "18rem"}}>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-              <div class="planetfacts">
-              <p> something here</p>
-              <p> something here</p>
-              <p> something here</p>
-              <p> something here</p>
-              </div>
-              <div class="card-body"></div> */
-}

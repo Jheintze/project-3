@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const Profile = () => {
   
-  const API_URL = "http://localhost:5005";
+  const API_URL = process.env.FRONTEND_URL
 
   const { storeToken, authenticateUser, isLoggedIn, user } =
 
@@ -34,7 +34,7 @@ const Profile = () => {
 
   return (
     <>
-      <h1> Welcome {user?.name} </h1>
+      <h1 className="welcome"> Welcome {user?.name} </h1>
 
       <div class="container text-center ">
         <div className="cards row justify-content-evenly ">

@@ -11,7 +11,7 @@ import SignUpModal from "../SignUp/SignUpModal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.FRONTEND_URL
 
 const BookingModal = (props) => {
   const [planet, setPlanet] = useState();
@@ -146,7 +146,7 @@ const BookingModal = (props) => {
               onClick={props.handleShow}
               size="lg"
             >
-              Register or Log in to book a flight
+              Register or Log in to book a flight to {planet.name}
             </Button>
           )}
 
@@ -183,6 +183,7 @@ const BookingModal = (props) => {
                         value={returning}
                         onChange={handleReturning}
                         required
+                        min='2022-12-17'
                       />
                     </div>
                   </div>

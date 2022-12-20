@@ -7,8 +7,10 @@
 .profileLink{
     text-decoration:none;
     color:white;
+    background-color: rgba(0,0,0,0) !important;
 }
 .profileLink:hover {
-    background-color:black !important;
+    background-color: rgba(0,0,0,0)!important;
     color:white !important;
   }
+  
