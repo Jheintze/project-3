@@ -39,26 +39,34 @@ img {
 .title {
  text-align:center;
  
- margin-top:50px !important;
+ margin-top:70px !important;
  margin-bottom:80px !important;
 }
 .planetText{
 text-align:center;
 color:white;
 margin-top:-50px;
+font-size:17px !important;
 }
 .planetFacts{
   color:white;
   list-style-type: none;
   display: inline-block;
   text-align: start;
-  margin-top:80px;
-  font-size:larger;
+  margin-top:70px;
+ 
+  font-size:17px !important;
 }
 .wrapper{
   margin-top:-100px;
   width:70%;
   padding: 40px;
+  margin-bottom:-100px;
+  
+  }
+
+  .listFacts{
+    padding:5px;
   }
 
 

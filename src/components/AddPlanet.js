@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.FRONTENDURL
 
 function AddPlanet(props) {
 
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [weather, setWeather] = useState("");
-  const [distanceSun, setDistanceSun] = useState("");
+  const [description, setDescription] = useState("");
   const [day, setDay] = useState("");
   const [year, setYear] = useState("");
   const [price, setPrice] = useState("");
@@ -17,7 +17,7 @@ function AddPlanet(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { name, type, weather, distanceSun, day, year , price, img };
+    const requestBody = { name, type, weather, description, day, year , price, img };
 
     // Get token from localStorage
     // const storedToken = localStorage.getItem('authToken');
@@ -46,9 +46,9 @@ function AddPlanet(props) {
 
         <label>weather</label>
         <textarea type="text" name="weather" value={weather} onChange={(e) => setWeather(e.target.value)}/>
-
-        <label>distanceSun</label>
-        <textarea type="text" name="distanceSun" value={distanceSun} onChange={(e) => setDistanceSun(e.target.value)}/>
+  
+        <label>Description</label>
+        <textarea type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
 
         <label>day</label>
         <textarea type="text" name="day" value={day} onChange={(e) => setDay(e.target.value)}/>
