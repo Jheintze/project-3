@@ -10,7 +10,7 @@ import BookingModal from "../../components/Booking/BookingModal";
 
 // import Navbar from "./components/Navbar/Navbar";
 
-const API_URL = process.env.FRONTEND_URL
+const API_URL = process.env.REACT_APP_API_URL
 
 const Destinations = (props) => {
   const [planet, setPlanet] = useState(null);

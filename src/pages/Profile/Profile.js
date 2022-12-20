@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const Profile = () => {
   
-  const API_URL = process.env.FRONTEND_URL
+  const API_URL = process.env.REACT_APP_API_URL
 
   const { storeToken, authenticateUser, isLoggedIn, user } =
 
