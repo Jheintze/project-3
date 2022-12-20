@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { AuthContext } from "../../context/auth.context";
 
-const API_URL = process.env.FRONTEND_URL
+const API_URL = process.env.REACT_APP_API_URL
 
 function SignUpModal(props) {
   

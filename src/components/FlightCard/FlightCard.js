@@ -4,7 +4,7 @@ import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const API_URL = process.env.FRONTEND_URL
+const API_URL = process.env.REACT_APP_API_URL
 
 function FlightCard({flight, getUserFlights}) {
 

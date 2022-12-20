@@ -11,7 +11,7 @@ import SignUpModal from "../SignUp/SignUpModal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const API_URL = process.env.FRONTEND_URL
+const API_URL = process.env.REACT_APP_API_URL
 
 const BookingModal = (props) => {
   const [planet, setPlanet] = useState();
