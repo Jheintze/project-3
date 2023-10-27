@@ -45,8 +45,8 @@ const MyNav = (props) => {
           <Nav className="">
             <NavDropdown className="dropDownTitle" title="Destinations" id="collasible-nav-dropdown">
               {planets.map((planet) => (
-                <NavDropdown.Item style={{backgroundColor: "transparent"}}>
-                <Link style ={{textDecoration: "none", Color: "black", backgroundColor: "black"}} to={`/destinations/` + planet._id}>{planet.name}</Link>               
+                <NavDropdown.Item>
+                <Link  to={`/destinations/` + planet._id}>{planet.name}</Link>               
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
