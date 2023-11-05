@@ -1,77 +1,71 @@
 body {
-    padding: 0;
-    margin: 0;
-    color:white;
-    font-size:xx-large
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-size: xx-large;
 }
 .Full_width {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    position:absolute;
-    top: 0;  
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
 }
 
 .Full_width > * {
-    flex: 1;
-    /* border: 2px solid red; */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    background-color: #000;
-    text-align: center ;
-    
+  flex: 1;
+  /* border: 2px solid red; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  text-align: center;
 }
 .set {
-   width: 100%;
+  width: 100%;
 }
 
 img {
-  width: 100%!important;
+  width: 100% !important;
 }
 .secondSet {
   justify-content: space-around;
-  padding:100px 0;
-  display:flex;
+  padding: 100px 0;
+  display: flex;
   flex-direction: column;
   /* border: 5px solid red; */
 }
 .title {
- text-align:center;
- 
- margin-top:70px !important;
- margin-bottom:80px !important;
+  text-align: center;
+  color: white;
+  margin-top: 70px !important;
+  margin-bottom: 80px !important;
 }
-.planetText{
-text-align:center;
-color:white;
-margin-top:-50px;
-font-size:17px !important;
+.planetText {
+  text-align: center;
+  color: white;
+  margin-top: -50px;
+  font-size: 17px !important;
 }
-.planetFacts{
-  color:white;
+.planetFacts {
+  color: white;
   list-style-type: none;
   display: inline-block;
   text-align: start;
-  margin-top:70px;
- 
-  font-size:17px !important;
+  margin-top: 70px;
+
+  font-size: 17px !important;
 }
-.wrapper{
-  margin-top:-100px;
-  width:70%;
+.wrapper {
+  margin-top: -100px;
+  width: 70%;
   padding: 40px;
-  margin-bottom:-100px;
-  
-  }
+  margin-bottom: -100px;
+}
 
-  .listFacts{
-    padding:5px;
-  }
-
-
-
-
+.listFacts {
+  padding: 5px;
+}
 
 /* .list{
   background-color:black !important;
@@ -81,9 +75,6 @@ font-size:17px !important;
   background-color:white;
   color:white;
 } */
-
-
-
 
 /* .Full_width .set, .Full_width .duble_Set {
     width: 50%;
@@ -96,27 +87,6 @@ label {
     flex-direction: column;
     text-transform: capitalize;
 } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* body {
     margin: 0;
@@ -135,12 +105,6 @@ img {
     object-fit: contain;
 } */
 
-
-
-
-
-
-
 /* body {
     box-sizing: border-box;
     padding: 0;
@@ -151,7 +115,7 @@ img {
     height: 100vh;
   }
 .image { */
-    /* Center and scale the image nicely 
+/* Center and scale the image nicely 
     background-repeat: no-repeat;
     background-position: left top;
     background-size: 100% 100%;
