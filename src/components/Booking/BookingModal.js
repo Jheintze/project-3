@@ -2,7 +2,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import "./Booking.css";
+import "./BookingModal.css";
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -133,7 +133,7 @@ const BookingModal = (props) => {
           {isLoggedIn ? (
             <Button
               className="onlyButtonThree"
-              variant="dark"
+              variant="light"
               onClick={handleShow}
               size="lg"
             >
@@ -142,7 +142,7 @@ const BookingModal = (props) => {
           ) : (
             <Button
               className="onlyButtonThree"
-              variant="dark"
+              variant="light"
               onClick={props.handleShow}
               size="lg"
             >
