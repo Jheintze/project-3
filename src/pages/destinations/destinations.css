@@ -3,64 +3,38 @@ body {
   margin: 0;
   color: white;
   font-size: xx-large;
+  height: 100%;
 }
-.Full_width {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-}
-
-.Full_width > * {
-  flex: 1;
-  /* border: 2px solid red; */
-  overflow: hidden;
-  display: flex;
+.pictureWrapper {
   align-items: center;
-  background-color: #000;
-  text-align: center;
-}
-.set {
-  width: 100%;
-}
-
-img {
-  width: 100% !important;
-}
-.secondSet {
-  justify-content: space-around;
-  padding: 100px 0;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  /* border: 5px solid red; */
+}
+.img-fluid {
+  margin-bottom: 100px;
 }
 .title {
-  text-align: center;
   color: white;
   margin-top: 70px !important;
   margin-bottom: 80px !important;
 }
 .planetText {
-  text-align: center;
   color: white;
-  margin-top: -50px;
+  margin: auto;
   font-size: 17px !important;
+  max-width: 60%;
 }
 .planetFacts {
   color: white;
   list-style-type: none;
-  display: inline-block;
-  text-align: start;
   margin-top: 70px;
-
   font-size: 17px !important;
 }
 .wrapper {
-  margin-top: -100px;
   width: 70%;
   padding: 40px;
   margin-bottom: -100px;
+  text-align: center;
 }
 
 .listFacts {
@@ -142,3 +116,13 @@ img {
 }
 
   */
+
+/* .Full_width > * {
+  flex: 1;
+   border: 2px solid red; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  text-align: center;
+}  */
