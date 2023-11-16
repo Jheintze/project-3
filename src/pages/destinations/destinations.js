@@ -33,34 +33,6 @@ const Destinations = (props) => {
 
   return (
     <>
-      {/* {planet && (
-        <div class="Full_width"> !
-          <div class="set">
-            <img src={planet.img} alt="planet"></img>
-          </div>
-          <div class="secondSet"> !
-            <div className="wrapper">
-              <h1 className="title"> {planet.name} </h1>
-              <p class="planetText">
-              {planet.description}
-              </p>
-              <ul class="planetFacts">
-                <li class="listFacts"> Type: {planet.type} </li>
-                <li class="listFacts">  Weather: {planet.weather}</li>
-                <li class="listFacts"> Baseprice: {planet.price} €</li>
-                <li class="listFacts"> Day : {planet.day}</li>
-                <li class="listFacts"> Year : {planet.year}</li>
-                
-              </ul>
-            </div>
-            <BookingModal handleShow={props.handleShow} />
-          </div>
-        </div>
-      )}
-    </>
-  );
-}; */}
-
       {planet && (
         <Container fluid>
           <Row>

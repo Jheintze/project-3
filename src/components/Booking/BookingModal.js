@@ -11,7 +11,7 @@ import SignUpModal from "../SignUp/SignUpModal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const API_URL = process.env.REACT_APP_API_URL
+const API_URL = process.env.REACT_APP_API_URL;
 
 const BookingModal = (props) => {
   const [planet, setPlanet] = useState();
@@ -29,6 +29,28 @@ const BookingModal = (props) => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [price, setPrice] = useState(0);
 
+  // prevent picking dates in the past
+
+  const getFormattedDate = (daysToAdd = 0) => {
+    const today = new Date();
+    today.setDate(today.getDate() + daysToAdd);
+
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+
+    // Add leading zero if month or day is a single digit
+
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+
+    return `${year}-${month}-${day}`;
+  };
+
+  const getFormattedDatePlusOne = () => getFormattedDate(1);
+
+  // price calculation
+
   useEffect(() => {
     if (!planet) {
       return;
@@ -37,7 +59,6 @@ const BookingModal = (props) => {
       let price = planet.price * adults;
 
       if (departure && returning) {
-
         let date1 = departure;
         let date2 = returning;
         new Date(date1).getTime();
@@ -48,21 +69,28 @@ const BookingModal = (props) => {
         price = price * days;
       }
 
-      if ( TravelClass === "Business class"){
-        price = price * 2
+      if (TravelClass === "Business class") {
+        price = price * 2;
+      } else if (TravelClass === "First class") {
+        price = price * 3;
       }
-      else if ( TravelClass === "First class"){
-        price = price * 3
-      }
-      
+
       setPrice(price);
     };
-
+      
     calculate();
   }, [departure, planet, returning, adults, TravelClass]);
 
+  const formattedPrice = (amount) => {
+    // Use the toLocaleString method to format the number as currency
+    return amount.toLocaleString("en-US", {
+      style: "currency",
+      currency: "EUR",
+    });
+  };
+
   // handle Input fields
-  
+
   const handleDeparture = (e) => {
     setDeparture(e.target.value);
   };
@@ -79,7 +107,6 @@ const BookingModal = (props) => {
     setTravelClass(e.target.value);
     console.log(e.target.value);
   };
-  
 
   let dateNoTime = new Date(departure).toLocaleDateString();
 
@@ -154,9 +181,16 @@ const BookingModal = (props) => {
             Book
           </Button> */}
 
-          <Modal show={show} onHide={handleClose}>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            centered
+            style={{ backgroundColor: "black" }}
+          >
             <Modal.Header closeButton>
-              <Modal.Title>Flight to {planet.name} </Modal.Title>
+              <Modal.Title className="bookingTitle">
+                Flight to {planet.name}{" "}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <form onSubmit={handleBooking}>
@@ -170,7 +204,7 @@ const BookingModal = (props) => {
                         value={departure}
                         onChange={handleDeparture}
                         required
-                        min='2022-12-16'
+                        min={getFormattedDate()}
                       />
                     </div>
                   </div>
@@ -183,7 +217,7 @@ const BookingModal = (props) => {
                         value={returning}
                         onChange={handleReturning}
                         required
-                        min='2022-12-17'
+                        min={getFormattedDatePlusOne()}
                       />
                     </div>
                   </div>
@@ -237,7 +271,7 @@ const BookingModal = (props) => {
                 </div>
                 <div class="form-btn">
                   <button type="submit" class="submit-btn">
-                    Book flight for {price} €
+                    Book flight for {formattedPrice(price)} 
                   </button>
                 </div>
               </form>
