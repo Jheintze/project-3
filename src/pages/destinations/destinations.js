@@ -6,10 +6,15 @@ import { useParams } from "react-router-dom";
 import "./destinations.css";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import BookingModal from "../../components/Booking/BookingModal";
+// import BookingModal from "../../components/Booking/BookingModal";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+// import { formattedPrice } from "../../components/Booking/BookingModal"
+// Destinations.js
+import BookingModal, { formattedPrice } from "../../components/Booking/BookingModal";
+
+// Rest of the code
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -45,7 +50,10 @@ const Destinations = (props) => {
               <ul className="planetFacts">
                 <li className="listFacts"> Type: {planet.type} </li>
                 <li className="listFacts"> Weather: {planet.weather}</li>
-                <li className="listFacts"> Baseprice: {planet.price} €</li>
+                <li className="listFacts">
+                  {" "}
+                  Baseprice: {formattedPrice(planet.price)} 
+                </li>
                 <li className="listFacts"> Day : {planet.day}</li>
                 <li className="listFacts"> Year : {planet.year}</li>
               </ul>

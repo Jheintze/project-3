@@ -13,6 +13,16 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
+const formattedPrice = (amount) => {
+  // Use the toLocaleString method to format the number as currency
+  return amount.toLocaleString("de-DE", {
+    style: "currency",
+    currency: "EUR",
+  });
+};
+
+export { formattedPrice };
+
 const BookingModal = (props) => {
   const [planet, setPlanet] = useState();
   const { planetId } = useParams();
@@ -29,6 +39,13 @@ const BookingModal = (props) => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [price, setPrice] = useState(0);
 
+  const handleReset = () => {
+    setDeparture("");
+    setReturning("");
+    setAdults(1);
+    setChildren(0);
+    setTravelClass("Economy class");
+  };
   // prevent picking dates in the past
 
   const getFormattedDate = (daysToAdd = 0) => {
@@ -77,17 +94,11 @@ const BookingModal = (props) => {
 
       setPrice(price);
     };
-      
+
     calculate();
   }, [departure, planet, returning, adults, TravelClass]);
 
-  const formattedPrice = (amount) => {
-    // Use the toLocaleString method to format the number as currency
-    return amount.toLocaleString("en-US", {
-      style: "currency",
-      currency: "EUR",
-    });
-  };
+  
 
   // handle Input fields
 
@@ -131,6 +142,7 @@ const BookingModal = (props) => {
       .post(`${API_URL}/api/flights`, requestBody)
       .then((response) => {
         handleClose();
+        handleReset();
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -240,7 +252,7 @@ const BookingModal = (props) => {
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <span class="form-label">Children (0-13)</span>
+                      <span class="form-label">Children (0-17)</span>
                       <select
                         class="form-control"
                         value={children}
@@ -269,10 +281,21 @@ const BookingModal = (props) => {
                     </div>
                   </div>
                 </div>
-                <div class="form-btn">
-                  <button type="submit" class="submit-btn">
-                    Book flight for {formattedPrice(price)} 
-                  </button>
+                <div className="form-btn-container">
+                  <span>
+                    {" "}
+                    Price for the selected flight: {formattedPrice(price)}
+                  </span>
+                </div>
+                <div>
+                  <Button
+                    size="lg"
+                    type="submit"
+                    className="submit-btn"
+                    variant="outline-dark"
+                  >
+                    Continue
+                  </Button>
                 </div>
               </form>
             </Modal.Body>
@@ -285,6 +308,7 @@ const BookingModal = (props) => {
     </>
   );
 };
+
 
 export default BookingModal;
 
