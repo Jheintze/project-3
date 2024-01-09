@@ -199,9 +199,9 @@ const BookingModal = (props) => {
             centered
             style={{ backgroundColor: "black" }}
           >
-            <Modal.Header closeButton>
+            <Modal.Header className="bookingTitle" closeButton>
               <Modal.Title className="bookingTitle">
-                Flight to {planet.name}{" "}
+                Flight to {planet.name}
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
