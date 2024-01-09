@@ -8,16 +8,18 @@
 
 }
 .bookingTitle{
-    text-align: center !important;
+   margin-left:75px;
+    
 }
 .onlyButtonThree{
     margin-top:100px;
     margin-left:30px;
 }
 .submit-btn{
-     display: flex;
-  margin:25px auto 0px auto;
+  display:flex;
+  margin:25px  auto auto 170px;
 }
+
 .form-btn-container {
   text-align: center;
   margin-top: 20px; /* Adjust the margin as needed */
